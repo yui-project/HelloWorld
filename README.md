@@ -1,4 +1,4 @@
-[![Build Status](http://sat-dev.kz.tsukuba.ac.jp/jenkins/job/HelloWorld/job/master/badge/icon)](http://sat-dev.kz.tsukuba.ac.jp/jenkins/job/HelloWorld/job/master/)
+[![Build Status](http://sat-dev.kz.tsukuba.ac.jp/jenkins/buildStatus/icon?job=HelloWorld%2Fmaster)](http://sat-dev.kz.tsukuba.ac.jp/jenkins/job/HelloWorld/job/master/)
 
 # Arduino CLi
 How to Setup
