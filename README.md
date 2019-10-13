@@ -1,3 +1,5 @@
+[![Build Status](http://sat-dev.kz.tsukuba.ac.jp/jenkins/job/HelloWorld/job/master/badge/icon)](http://sat-dev.kz.tsukuba.ac.jp/jenkins/job/HelloWorld/job/master/)
+
 # Arduino CLi
 How to Setup
 
