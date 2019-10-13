@@ -1,5 +1,10 @@
 pipeline {
-    node('Slave1') {
+    agent {
+        node {
+            label 'Slave1'
+        }
+    }
+    stages {
         stage('Git Pull'){
             git url: 'https://github.com/yui-project/HelloWorld.git', branch: 'master'
         }
