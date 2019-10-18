@@ -6,7 +6,7 @@ io_test() {
     pytest $1.py
 }
 
-for dir_path in `\find ./test/IO -depth 1 -type d`; do
+for dir_path in `\find ./test/IO -maxdepth 1 -mindepth 1 -type d`; do
     dir_name=`basename ${dir_path}`
     io_test ${dir_path}"/"${dir_name}
 done
