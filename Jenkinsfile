@@ -27,7 +27,7 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'ls -la'
-                sh './a.out'
+                sh './test.sh'
             }
         }
     }

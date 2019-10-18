@@ -2,6 +2,8 @@ from serial.tools import list_ports
 import serial
 import sys
 
+# use pytest
+
 import RPi.GPIO as GPIO  #GPIOにアクセスするライブラリをimportします。 
 
 GPIO.setmode(GPIO.BCM)  #GPIOへアクセスする番号をBCMの番号で指定することを宣言します。                                           
