@@ -21,6 +21,8 @@ def select_serial_port():
         print(info.description)
         if info.description == 'ttyAMA0':
             print("remove UART0")
+        elif info.description == 'n/a':
+            print("remove n/a device")
         else:
             devices.append(info.device)
 
@@ -38,21 +40,25 @@ def select_serial_port():
         print("input number of Serial com Port\n>> ",end="")
         port_num = int(input())
 
+    print("--------- select device --------")
+    print(devices[port_num])
+    print("--------------------------------")
+
     return devices[port_num]
 
 def test_analog_output():
 
     arduino_serial = serial.Serial(port=select_serial_port() ,baudrate=9600, timeout=10)
+
+    time.sleep(10)
     
-    arduino_serial.write("RUN".encode("utf-8"))
+    arduino_serial.write("RUN\r\n".encode("utf-8"))
 
-    time.sleep(1)
-
-    ret = str(arduino_serial.readline())
+    ret = arduino_serial.readline().decode("utf-8").strip()
     print(ret)
-    
+
     assert ret == "FIN"
 
-    assert GPIO.input(2) == GPIO.HIGH
+    #assert GPIO.input(2) == GPIO.HIGH
 
-
+    arduino_serial.close()

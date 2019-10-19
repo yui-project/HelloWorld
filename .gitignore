@@ -160,3 +160,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Arduino gitignore
+
+*.elf
+*.hex
