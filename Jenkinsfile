@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sh 'eval "$(pyenv init -)"'
                 sh 'echo $PATH'
-                sh 'pyenv install --list'
+                sh 'pyenv versions'
                 sh 'pyenv local 3.7.0'
                 sh 'python -V'
                 sh 'which python'
