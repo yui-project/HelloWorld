@@ -1,6 +1,7 @@
 from serial.tools import list_ports
 import serial
 import sys
+import time
 
 # use pytest
 
@@ -44,7 +45,13 @@ def test_analog_output():
     arduino_serial = serial.Serial(port=select_serial_port() ,baudrate=9600, timeout=10)
     
     arduino_serial.write("RUN".encode("utf-8"))
-    assert str(arduino_serial.readline()) == "FIN"
+
+    time.sleep(1)
+
+    ret = str(arduino_serial.readline())
+    print(ret)
+    
+    assert ret == "FIN"
 
     assert GPIO.input(2) == GPIO.HIGH
 
