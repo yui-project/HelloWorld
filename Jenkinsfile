@@ -12,8 +12,10 @@ pipeline {
         stage('Set Environment Values') {
             steps {
                 sh 'eval "$(pyenv init -)"'
+                sh 'pyenv local 3.7.0'
                 sh 'echo $PATH'
                 sh 'python -V'
+                sh 'poetry debug:info'
             }
         }
         stage('Git Pull'){
