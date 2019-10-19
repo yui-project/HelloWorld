@@ -1,4 +1,4 @@
-#include "../../../../src/HelloWorld/hoge.hpp"
+#include "HelloWorld/hoge.hpp"
 
 int outputPin = 9;
 
