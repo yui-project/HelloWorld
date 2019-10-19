@@ -36,10 +36,10 @@ def select_serial_port():
 
 def test_analog_output():
 
-    serial = serial.Serial(port=select_serial_port() ,baudrate=9600, timeout=10)
+    arduino_serial = serial.Serial(port=select_serial_port() ,baudrate=9600, timeout=10)
     
-    serial.write("RUN".encode("utf-8"))
-    assert str(serial.readline()) == "FIN"
+    arduino_serial.write("RUN".encode("utf-8"))
+    assert str(arduino_serial.readline()) == "FIN"
 
     assert GPIO.input(2) == GPIO.LOW
 
