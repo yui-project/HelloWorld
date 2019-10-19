@@ -27,6 +27,8 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'ls -la'
+                sh 'echo $PATH'
+                sh 'python -v'
                 sh './test.sh'
             }
         }
