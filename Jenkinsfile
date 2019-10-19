@@ -4,10 +4,14 @@ pipeline {
             label 'Slave1'
         }
     }
+    environment {
+        PYENV_ROOT="$HOME/.pyenv"
+        PATH = "$HOME/.poetry/bin:PYENV_ROOT/bin:$PATH"
+    }
     stages {
         stage('Set Environment Values') {
             steps {
-                sh 'source ~/.bash_profile'
+                eval "$(pyenv init -)"
                 sh 'echo $PATH'
                 sh 'python -V'
             }
