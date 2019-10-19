@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Set Environment Values') {
             steps {
-                sh 'source ~/.bash_profile'
+                sh 'eval "$(pyenv init -)"'
                 sh 'echo $PATH'
                 sh 'pyenv versions'
                 sh 'pyenv local 3.7.0'
