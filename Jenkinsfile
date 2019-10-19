@@ -6,15 +6,11 @@ pipeline {
     }
     environment {
         PYENV_ROOT="$HOME/.pyenv"
-        PATH = "$HOME/.poetry/bin:$PYENV_ROOT/bin:$PATH"
+        PATH = "$HOME/.poetry/bin:$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
     }
     stages {
         stage('Set Environment Values') {
             steps {
-                sh '''
-                    eval "$(pyenv init -)"
-                    echo $PATH
-                '''
                 sh 'echo $PATH'
                 sh 'pyenv versions'
                 sh 'pyenv local 3.7.0'
