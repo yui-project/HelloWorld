@@ -5,6 +5,13 @@ pipeline {
         }
     }
     stages {
+        stage('Set Environment Values') {
+            steps {
+                sh 'source ~/.bash_profile'
+                sh 'echo $PATH'
+                sh 'python -V'
+            }
+        }
         stage('Git Pull'){
             steps {
                 git url: 'https://github.com/yui-project/HelloWorld.git', branch: 'master'
@@ -27,8 +34,6 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'ls -la'
-                sh 'echo $PATH'
-                sh 'python -v'
                 sh './test.sh'
             }
         }
