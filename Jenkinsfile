@@ -33,13 +33,14 @@ pipeline {
         stage('Compile'){
             steps {
                 sh 'ls -la'
-                sh 'gcc hello.c'
+                sh 'gcc hello.c -o hello.out'
             }
         }
         
         stage('Test'){
             steps {
                 sh 'ls -la'
+                sh './hello.out'
                 sh './test.sh'
             }
         }
