@@ -13,10 +13,15 @@ def select_serial_port():
     ports = list_ports.comports()
 
     devices = []
+    # https://www.ingenious.jp/raspberry-pi/2019/03/gpio-uart/
+    # デフォルトで存在するUART0を除去する
     for info in ports:
         print(info.device)
         print(info.description)
-        devices.append(info.device)
+        if info.description == 'ttyAMA0':
+            print("remove UART0")
+        else:
+            devices.append(info.device)
 
     if len(devices) == 0:
         print("Device not found.")
@@ -41,6 +46,6 @@ def test_analog_output():
     arduino_serial.write("RUN".encode("utf-8"))
     assert str(arduino_serial.readline()) == "FIN"
 
-    assert GPIO.input(2) == GPIO.LOW
+    assert GPIO.input(2) == GPIO.HIGH
 
 
